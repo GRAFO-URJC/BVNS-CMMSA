@@ -1,26 +1,23 @@
-# Title of the Paper Here <a href="https://doi.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/DOI_logo.svg" alt="DOI" width="20"/></a> <a href="https://doi.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Zenodo-gradient-square.svg" alt="Zenodo" width="60"/></a>
+# Exact and heuristic methods for the Min-Max Sitting Arrangement Problem in the Cycle <a href="https://doi.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/DOI_logo.svg" alt="DOI" width="20"/></a> <a href="https://doi.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Zenodo-gradient-square.svg" alt="Zenodo" width="60"/></a>
 
-<!-- Load Material Symbols Outlined for icons -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=mail" />
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Code](https://img.shields.io/badge/Code-Java-orange.svg)]()
-[![Framework](https://img.shields.io/badge/Powered_by-MORK-green.svg)](https://mork-optimization.com/)
-
 
 ## Abstract
 
-Paper under review. To be added upon acceptance.
+We study the Cyclic Min-Max Sitting Arrangement (CMMSA) problem on signed graphs, which seeks to place vertices around a cycle so that the maximum number of conflicts experienced by any single vertex is minimized. A conflict occurs when a negatively connected vertex lies on a shortest path between a vertex and one of its positively connected neighbors. We show that CMMSA is NP-hard. We address this problem with two exact mathematical models designed for commercial solvers and with a tailored Basic Variable Neighborhood Search (BVNS) that combines a greedy constructive start, informed shaking strategies, fast objective evaluation, and a fairness-oriented tie-breaking rule. Our evaluation covers 1,208 instances including synthetic families, real social networks, and engineered graphs adapted from the Harwell-Boeing collection. Under standard time budgets, the proposed method outperforms commercial solvers and a state-of-the-art baseline adapted to this objective, delivering the best results in 266 of 269 benchmarks and reaching optimal or zero-conflict solutions in 153 cases. These findings establish CMMSA as a relevant min-max variant within cyclic graph layout problems and provide models and datasets that enable reproducible comparison and future research.
 
 ## Authors
 
-- First Author <sup>1,*</sup> <a href="mailto:first.author@urjc.es" aria-label="First Author Email"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Email_Shiny_Icon.svg" alt="email" width="20" style="vertical-align:middle;"/></a> <a href="https://orcid.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID" width="20" style="vertical-align:middle;"/></a>
-- Second Author <sup>2</sup> <a href="mailto:second.author@institution.edu" aria-label="Second Author Email"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Email_Shiny_Icon.svg" alt="email" width="20" style="vertical-align:middle;"/></a> <a href="https://orcid.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID" width="20" style="vertical-align:middle;"/></a>
+- **Marcos Robles** <sup>1</sup> <a href="mailto:marcos.robles@urjc.es" aria-label="Email"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Email_Shiny_Icon.svg" alt="email" width="20" style="vertical-align:middle;"/></a> <a href="https://orcid.org/0000-0002-8376-6209"><img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID" width="20" style="vertical-align:middle;"/></a>
+- **Sergio Cavero** <sup>1</sup> <a href="mailto:sergio.cavero@urjc.es" aria-label="Email"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Email_Shiny_Icon.svg" alt="email" width="20" style="vertical-align:middle;"/></a> <a href="https://orcid.org/0000-0002-5258-5915"><img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID" width="20" style="vertical-align:middle;"/></a>
+- **Eduardo G. Pardo** <sup>1,*</sup> <a href="mailto:eduardo.pardo@urjc.es" aria-label="Email"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Email_Shiny_Icon.svg" alt="email" width="20" style="vertical-align:middle;"/></a> <a href="https://orcid.org/0000-0002-6247-5269"><img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID" width="20" style="vertical-align:middle;"/></a>
 
 ### Affiliations
 
-1. Departamento de Informática y Estadística, Universidad Rey Juan Carlos — C. Tulipán, s/n, Móstoles, 28933, Madrid, Spain
-2. Department Name, Institution Name — Address, City, Postal Code, Country
+1. Universidad Rey Juan Carlos — Calle Tulipán s/n, Móstoles, 28933, Madrid, Spain
 
 <sup>*</sup>Corresponding author.
 
@@ -39,8 +36,6 @@ Paper under review. To be added upon acceptance.
 - [Funding](#funding)
 - [Citation](#citation)
 - [Acknowledgments](#acknowledgments)
-- [Contact](#contact)
-- [Powered by MORK](#powered-by-mork-metaheuristic-optimization-framework)
 
 ---
 
@@ -48,14 +43,11 @@ Paper under review. To be added upon acceptance.
 
 ```
 .
-├── instances/          # Problem instances
+├── instances/         # Problem instances
 ├── results/           # Experimental results
-├── src/               # Source code
-├── target/            # Compiled artifacts
-├── analysis/          # Analysis scripts
+├── code/              # Compiled artifacts - To be uploaded upon acceptance
 ├── LICENSE            # License file
-├── README.md          # This file
-└── pom.xml            # Maven configuration
+└── README.md          # This file
 ```
 
 ---
@@ -64,7 +56,7 @@ Paper under review. To be added upon acceptance.
 
 ## Datasets
 
-Instances are categorized in different datasets inside the `instances` folder.
+The repository contains 269 instances used in the experimental evaluation, categorized in different datasets inside the `instances` folder. These include synthetic families, real social networks, and engineered graphs adapted from the Harwell-Boeing collection organizied in subsets accorcing to their size: small (45), medium (90), big (90) and huge (44). 
 
 ### Instance Format
 
@@ -81,63 +73,23 @@ Example:
 1 3
 ...
 ```
-
-### Dataset Statistics
-
-| Dataset | Instances | Vertices Range | Edges Range | Description |
-|---------|-----------|----------------|-------------|-------------|
-| Small   | 10        | 10-50          | 15-100      | Small test instances |
-| Medium  | 20        | 50-200         | 100-500     | Medium-sized instances |
-| Large   | 15        | 200-1000       | 500-5000    | Large benchmark instances |
-
 ## Code Execution
-
-### Building the Project
-
-```bash
-mvn clean package
-```
 
 ### Running Experiments
 
 Execution of the program can be done via the command line.
 
-**Example 1:** Execute default experiment with the default set of instances
+**Example:** Execute default experiment with the default set of instances
 ```bash
-java -jar target/code.jar 
-```
-
-**Example 2:** Execute using a different set of instances located inside the `newinstances` folder
-```bash
-java -jar target/code.jar --instances.path.default=newinstances
-```
-
-**Example 3:** Execute with custom parameters
-```bash
-java -jar target/code.jar --instances.path.default=newinstances --algorithm.maxIterations=1000 --seed=42
+java -jar target/BVNS.jar 
 ```
 
 ### Configuration Options
 
-Available command-line parameters:
-- `--instances.path.default`: Path to instances folder (default: `instances`)
-- `--algorithm.maxIterations`: Maximum number of iterations (default: `1000`)
-- `--algorithm.populationSize`: Population size for metaheuristics (default: `100`)
-- `--seed`: Random seed for reproducibility (default: `0`)
-- `--output.path`: Output directory for results (default: `results`)
-
 ## Requirements
 
 - Java 11 or higher
-- Maven 3.6+ (for building from source)
 - Minimum 4GB RAM recommended for large instances
-
-### Dependencies
-
-All dependencies are managed through Maven and will be automatically downloaded during the build process. Main dependencies include:
-- MORK Framework (latest version)
-- Apache Commons Math3
-- JUnit 5 (for testing)
 
 ## Results
 
@@ -147,8 +99,6 @@ Experimental results are stored in the `results` folder after execution. Each re
 - Solution quality metrics
 - Execution time
 - Algorithm parameters used
-
-Results can be analyzed using the provided visualization scripts in the `analysis` folder.
 
 ## License
 
@@ -185,9 +135,9 @@ If you use this work in your research, please cite our paper:
 ### Bibtex
 
 ```bibtex
-@article{citeKey2024,
-  title={Title of the Paper Here},
-  author={Surname, First Name and Surname2, Second Name},
+@article{Robles2024,
+  title={Exact and heuristic methods for the Min-Max Sitting Arrangement Problem in the Cycle},
+  author={Robles, Marcos and Cavero, Sergio and Pardo, Eduardo G.},
   journal={Journal Name},
   volume={XX},
   number={X},
@@ -200,11 +150,11 @@ If you use this work in your research, please cite our paper:
 
 ### APA Format
 
-Surname, F. N., & Surname2, S. N. (20XX). Title of the paper here. *Journal Name*, *XX*(X), XXX-XXX. https://doi.org/XXXXXXX
+Robles, M., Cavero, S., & Pardo, E. G. (20XX). Exact and heuristic methods for the Min-Max Sitting Arrangement Problem in the Cycle. Journal Name, XX(X), XXX-XXX. https://doi.org/XXXXXXX
 
 ### IEEE Format
 
-F. N. Surname and S. N. Surname2, "Title of the paper here," *Journal Name*, vol. XX, no. X, pp. XXX-XXX, 20XX, doi: XXXXXXX.
+M. Robles, S. Cavero, and E. G. Pardo, "Exact and heuristic methods for the Min-Max Sitting Arrangement Problem in the Cycle," Journal Name, vol. XX, no. X, pp. XXX-XXX, 20XX, doi: XXXXXXX.
 
 ## Acknowledgments
 
@@ -213,18 +163,3 @@ We would like to thank:
 - [Name/Organization] for providing computational resources
 - The MORK development team for their excellent framework
 - Contributors who helped improve this work
-
-## Contact
-
-For questions, issues, or collaborations, please contact:
-
-- **First Author**: [first.author@urjc.es](mailto:first.author@urjc.es)
-- **Project Issues**: [GitHub Issues](https://github.com/username/repository/issues)
-- **Project Website**: [https://project-website.com](https://project-website.com)
-
-## Powered by MORK (Metaheuristic Optimization framewoRK)
-
-| ![Mork logo](https://user-images.githubusercontent.com/55482385/233611563-4f5c91f2-af36-4437-a4b5-572b6655487a.svg) | MORK is a Java framework for easily solving hard optimization problems. You can [create a project](https://generator.mork-optimization.com/) and try the framework in under one minute. See the [documentation](https://docs.mork-optimization.com/en/latest/) or the [source code](https://github.com/mork-optimization/mork). |
-|:--:|--|
-
----
