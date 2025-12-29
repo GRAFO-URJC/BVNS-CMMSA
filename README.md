@@ -45,7 +45,7 @@ We study the Cyclic Min-Max Sitting Arrangement (CMMSA) problem on signed graphs
 .
 ├── instances/         # Problem instances
 ├── results/           # Experimental results
-├── code/              # Compiled artifacts - To be uploaded upon acceptance
+├── code/              # Compiled artifacts
 ├── LICENSE            # License file
 └── README.md          # This file
 ```
@@ -56,34 +56,54 @@ We study the Cyclic Min-Max Sitting Arrangement (CMMSA) problem on signed graphs
 
 ## Datasets
 
-The repository contains 269 instances used in the experimental evaluation, categorized in different datasets inside the `instances` folder. These include synthetic families, real social networks, and engineered graphs adapted from the Harwell-Boeing collection organizied in subsets accorcing to their size: small (45), medium (90), big (90) and huge (44). 
+The repository contains 269 instances used in the experimental evaluation, categorized in different datasets inside the `Instances` folder. These include synthetic families, real social networks, and engineered graphs adapted from the Harwell-Boeing collection organizied in subsets accorcing to their size: small (45), medium (90), big (90) and huge (44). 
 
 ### Instance Format
 
 Each instance is encoded as a plain text file representing a graph:
 - The first line contains the number of vertices `n` and edges `m`.
-- Each subsequent line contains a pair of integers `u v` representing an edge between vertex `u` and vertex `v`.
-- Vertices are indexed from 0 to n-1.
+- Each subsequent line contains a triplet of integers `u v w` representing an edge between vertex `u` and vertex `v` with a weight `w`, that is either 1 or -1.
+- Vertices are indexed from 1 to n.
 
 Example:
 ```
-10 15
-0 1
-0 2
-1 3
+vertices: 10 edges: 9
+2 3 -1
+4 9 -1
+6 1 -1
+6 2 1
+6 8 -1
+6 10 1
+8 4 1
+8 7 -1
+10 5 -1
+```
+
+Note that the most recent instances have a slightly different header, for example:
+
+```
+# This is an adaptation of one of the original Harwell-Boeing instances
+24 68
+1 6 1
+1 7 1
+1 13 1
 ...
 ```
 ## Code Execution
 
 ### Running Experiments
 
-Execution of the program can be done via the command line.
-
-**Example:** Execute default experiment with the default set of instances
+Execution of the program can be done via the command line. The instances that will be used for the execution must be in a folder called "Instances" or a subfolder, and the path must be given by args.
+**Example:** Execute default experiment for all the instances.
 ```bash
-java -jar target/BVNS.jar 
+java -jar BVNS_CMMSA.jar experiment -i "../Instances/" -l "severe" -s
 ```
 
+**Example:** Execute default experiment for the small instances only.
+```bash
+java -jar BVNS_CMMSA.jar experiment -i "../Instances/small/" -l "severe" -s
+```
+Note that the Instances folder is capitalized, this is important for the code to properly handle strings.
 ### Configuration Options
 
 ## Requirements
@@ -93,12 +113,14 @@ java -jar target/BVNS.jar
 
 ## Results
 
-Experimental results are stored in the `results` folder after execution. Each result file includes:
-- Instance name
-- Best solution found
-- Solution quality metrics
-- Execution time
-- Algorithm parameters used
+Experimental results are stored in a CSV file after execution. Each result file includes:
+- Algorithm ID, which is the same for all rows in the given jar
+- Filename
+- CMinMax O.F.
+- T. CPU (s)
+- TimeToBest (s)
+- CMinSA Objective Function
+- Iterations
 
 ## License
 
@@ -160,6 +182,5 @@ M. Robles, S. Cavero, and E. G. Pardo, "Exact and heuristic methods for the Min-
 
 We would like to thank:
 - The reviewers for their valuable feedback and suggestions
-- [Name/Organization] for providing computational resources
-- The MORK development team for their excellent framework
+- GRAFO research group for providing computational resources
 - Contributors who helped improve this work
